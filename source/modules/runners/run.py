@@ -145,9 +145,12 @@ class Runners:
                 self.logger.debug("Running '%s'.", command)
                 try:
                     with subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
-                                          env=command_env) as proc:
+                            env=command_env) as proc, open(f"{self.log_path}.raw",
+                                    "a", encoding="utf-8") as raw_log:
+
 
                         for msg in proc.stdout:
+                            raw_log.write(msg.decode("utf-8"))
                             dec_msg = msg.split(b"\n")[0].decode("utf-8")
                             returned.append(dec_msg)
                             run_logger.info(dec_msg)
