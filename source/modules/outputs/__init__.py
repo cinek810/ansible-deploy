@@ -36,7 +36,7 @@ class AnsibleDeployerLogger:
 
     formatter = logging.Formatter("%(asctime)s [%(levelname)s]: %(message)s")
     basic_formatter = "%(asctime)s [%(levelname)s]: %(message)s"
-    console_formatter = "\n%(asctime)s [%(levelname)s]: %(message)s\n"
+    console_formatter = "\n%(asctime)s [%(levelname)s]: %(message)s"
     raw_formatter = "%(message)s"
 
     def __init__(self, name: str, options: dict):

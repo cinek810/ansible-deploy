@@ -62,9 +62,9 @@ echo -e "   ___ ____                      _               _                     
 check_run_ok "ansible-deployer show -d" "\[DEBUG\]: load_configuration called"
 
 # Check different output options
-check_message_with_newline_in_output "ansible-deployer run -t task_with_ansible_fail -s testing -i testInfra" "\[ERROR\]:.*\n.*TASK \[Run ll\]"
-check_message_with_newline_in_output "ansible-deployer run -t task_with_ansible_fail -s testing -i testInfra --raw-runner-output" "\[ERROR\]:.*\n.*TASK \[Run ll\]"
-check_message_with_newline_in_output "ansible-deployer run -t task_with_ansible_fail -s testing -i testInfra --raw-runner-output" ".*\n.*TASK \[Run ll\]"
+check_message_with_newline_in_output "ansible-deployer run -t task_with_ansible_fail -s testing -i testInfra" "\[ERROR\]:.*\n\n\nTASK \[Run ll\]"
+check_message_with_newline_in_output "ansible-deployer run -t task_with_ansible_fail -s testing -i testInfra --raw-runner-output" "\[ERROR\]:.*\n\n\nTASK \[Run ll\]"
+check_message_with_newline_in_output "ansible-deployer run -t task_with_ansible_fail -s testing -i testInfra --raw-runner-output" ".*\n\n\nTASK \[Run ll\]"
 
 echo -e "   ___ ____                      _               _                           _                _\n  / _ \___ \ __ _            ___| |__   ___  ___| | ___ __ _   _ _ __    ___| |__   ___  _ __| |_\n | | | |__) / _\` |  _____   / __| '_ \ / _ \/ __| |/ / '__| | | | '_ \  / __| '_ \ / _ \| '__| __|\n | |_| / __/ (_| | |_____| | (__| | | |  __/ (__|   <| |  | |_| | | | | \__ \ | | | (_) | |  | |_\n  \___/_____\__,_|          \___|_| |_|\___|\___|_|\_\_|   \__,_|_| |_| |___/_| |_|\___/|_|   \__|\n \n  _ _           _ _                 _   _\n | (_)_ __ ___ (_) |_    ___  _ __ | |_(_) ___  _ __\n | | | '_ \` _ \| | __|  / _ \| '_ \| __| |/ _ \| '_ \ \n | | | | | | | | | |_  | (_) | |_) | |_| | (_) | | | |\n |_|_|_| |_| |_|_|\__|  \___/| .__/ \__|_|\___/|_| |_|\n                             |_|\n"
 # Check --limit option

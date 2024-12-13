@@ -17,9 +17,9 @@ SCHEMAS = {
     "play_item_tasks": {
         "sequence_id": "text",
         "timestamp": "text",
-        "hostname": "text",
         "result": "text",
         "changed": "text",
+        "hostname": "text",
         "task_name": "text"
     }
 }

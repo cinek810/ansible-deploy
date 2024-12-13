@@ -82,7 +82,7 @@ def main(options: dict):
                                                        db_writer)
             if options["lock"]:
                 lock.unlock_inventory(lockpath)
-            blocks.log_exit_messages(logger.logger, log_path, db_path)
+            blocks.log_exit_messages(logger.logger, workdir, log_path, db_path)
             db_writer.finalize_db_write(sequence_record_dict, False)
         elif options["subcommand"] == "lock":
             lock.lock_inventory(lockpath)

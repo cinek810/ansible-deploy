@@ -7,6 +7,7 @@ from logging import Logger
 
 from ansible_deployer.modules.globalvars import ANSIBLE_DEFAULT_CALLBACK_PLUGIN_PATH,\
     REQUIRED_CALLBACK_PLUGINS
+from ansible_deployer.modules.outputs import blocks
 from ansible_deployer.modules.outputs.formatting import Formatters
 from ansible_deployer.modules.outputs.loggers import RunLogger
 
@@ -170,6 +171,8 @@ class Runners:
                                                                parsed_std["error"], command)
                             self.lock_obj.unlock_inventory(lockpath)
                             db_writer.finalize_db_write(sequence_records, False)
+                            blocks.log_exit_messages(
+                                self.logger, self.workdir, self.log_path, self.db_path)
                             self.logger.critical("Program will exit now.")
                             sys.exit(71)
                 except Exception as exc:

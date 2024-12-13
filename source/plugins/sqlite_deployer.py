@@ -42,9 +42,9 @@ class CallbackModule(CallbackBase):
     TABLE_COLUMNS = [
         "sequence_id",
         "timestamp",
-        "hostname",
         "result",
         "changed",
+        "hostname",
         "task_name"
     ]
     TIME_FORMAT = "%b %d %Y %H:%M:%S"
@@ -85,9 +85,9 @@ class CallbackModule(CallbackBase):
                 self.TABLE_NAME, *self.TABLE_COLUMNS), (
                     self.sequence,
                     now,
-                    result._host.get_name(),
                     category,
                     changed_status,
+                    result._host.get_name(),
                     result._task.name
                 )
             )
